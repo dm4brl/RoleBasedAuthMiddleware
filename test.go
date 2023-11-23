@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -26,7 +26,7 @@ func TestAdmin(t *testing.T) {
 
 	// Проверка тела ответа.
 	expectedResponse := "Admin Resource"
-	body, err := ioutil.ReadAll(recorder.Body)
+	body, err := io.ReadAll(recorder.Body)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -54,7 +54,7 @@ func TestUser(t *testing.T) {
 
 	// Проверка тела ответа.
 	expectedResponse := "User Resource"
-	body, err := ioutil.ReadAll(recorder.Body)
+	body, err := io.ReadAll(recorder.Body)
 	if err != nil {
 		t.Fatal(err)
 	}
