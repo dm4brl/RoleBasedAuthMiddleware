@@ -30,16 +30,14 @@ func RoleBasedAuthMiddleware(allowedRoles []string, next http.Handler) http.Hand
 
 // AdminHandler обработчик для ресурса "/admin".
 func AdminHandler(w http.ResponseWriter, r *http.Request) {
-	userRole := r.Header.Get("X-User-Role")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("Admin Resource\nUser Role: " + userRole))
+	w.Write([]byte("Admin Resource"))
 }
 
 // UserHandler обработчик для ресурса "/user".
 func UserHandler(w http.ResponseWriter, r *http.Request) {
-	userRole := r.Header.Get("X-User-Role")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("User Resource\nUser Role: " + userRole))
+	w.Write([]byte("User Resource"))
 }
 
 func main() {
